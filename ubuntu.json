@@ -36,7 +36,6 @@
       "iso_file": "local:iso/{{user `iso_filename`}}",
       "unmount_iso": true,
       "boot_wait": "10s",
-      
       "boot_command": [
         "<esc><wait>",
         "<esc><wait>",
@@ -72,14 +71,6 @@
   ],
   "provisioners": [
     {
-      "environment_vars": [
-        "HOME_DIR=/home/vagrant",
-        "http_proxy={{user `http_proxy`}}",
-        "https_proxy={{user `https_proxy`}}",
-        "no_proxy={{user `no_proxy`}}"
-      ],
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
-      "expect_disconnect": true,
       "scripts": [
         "{{template_dir}}/scripts/update.sh",
         "{{template_dir}}/../_common/motd.sh",
@@ -98,7 +89,6 @@
     }
   ],
   "variables": {
-    
     "proxmox_url": "https://192.168.221.148:8006/api2/json",
     "proxmox_username": "root@pam",
     "proxmox_password": "{{env `PROXMOX_PWD`}}",
@@ -111,29 +101,7 @@
     "vm_disksize": "8G",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant"
-    
-    "box_basename": "ubuntu-18.04",
-    "build_directory": "../../builds",
-    "build_timestamp": "{{isotime \"20060102150405\"}}",
-    "cpus": "1",
-    "disk_size": "65536",
-    "git_revision": "__unknown_git_revision__",
-    "guest_additions_url": "",
-    "headless": "",
     "http_directory": "{{template_dir}}/http",
-    "http_proxy": "{{env `http_proxy`}}",
-    "https_proxy": "{{env `https_proxy`}}",
-    "hyperv_generation": "2",
-    "hyperv_switch": "{{env `hyperv_switch`}}",
-    "iso_checksum": "8c5fc24894394035402f66f3824beb7234b757dd2b5531379cb310cedfdf0996",
-    "iso_name": "ubuntu-18.04.5-server-amd64.iso",
-    "memory": "1024",
-    "mirror": "http://cdimage.ubuntu.com",
-    "mirror_directory": "ubuntu/releases/18.04.5/release",
-    "name": "ubuntu-18.04",
-    "no_proxy": "{{env `no_proxy`}}",
     "preseed_path": "preseed.cfg",
-    "template": "ubuntu-18.04-amd64",
-    "version": "TIMESTAMP"
   }
 }
