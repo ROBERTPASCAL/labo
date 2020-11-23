@@ -43,6 +43,26 @@
       "os": "l26",
       "http_directory": "http",
       "node": "pve",
+      "network_adapters": [
+        {
+          "model": "virtio",
+          "bridge": "vmbr0"
+        }
+      ],
+      "disks": [
+        {
+          "type": "scsi",
+          "disk_size": "{{user `vm_disksize`}}",
+          "storage_pool": "local-lvm",
+          "storage_pool_type": "lvm"
+        }
+      ],
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_timeout": "30m",
+      "iso_file": "local:iso/{{user `iso_filename`}}",
+      "unmount_iso": true,
+      "boot_wait": "10s",
       
       "cpus": "{{ user `cpus` }}",
       "disk_size": "{{user `disk_size`}}",
