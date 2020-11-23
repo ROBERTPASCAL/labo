@@ -100,7 +100,7 @@
     "vm_cores": "1",
     "vm_disksize": "8G",
     "ssh_username": "vagrant",
-    "ssh_password": "vagrant"
+    "ssh_password": "vagrant",
     "http_directory": "{{template_dir}}/http",
     "preseed_path": "preseed.cfg",
   }
