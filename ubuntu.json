@@ -100,6 +100,20 @@
     }
   ],
   "variables": {
+    
+    "proxmox_url": "https://192.168.221.148:8006/api2/json",
+    "proxmox_username": "root@pam",
+    "proxmox_password": "{{env `PROXMOX_PWD`}}",
+    "iso_filename": "ubuntu-18.04.5-live-server-amd64.iso",
+    "vm_id": "100",
+    "vm_name": "logger",
+    "template_description": "Ubuntu 18.04 x86_64 template Bento/chef built with packer",
+    "vm_memory": "2048",
+    "vm_cores": "1",
+    "vm_disksize": "8G",
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant"
+    
     "box_basename": "ubuntu-18.04",
     "build_directory": "../../builds",
     "build_timestamp": "{{isotime \"20060102150405\"}}",
