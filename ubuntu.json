@@ -42,7 +42,7 @@
       "cpu_type": "host",
       "os": "l26",
       "http_directory": "http",
-      "node": "macmini1",
+      "node": "pve",
       
       "cpus": "{{ user `cpus` }}",
       "disk_size": "{{user `disk_size`}}",
