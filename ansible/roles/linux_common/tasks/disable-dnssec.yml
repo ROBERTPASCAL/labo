@@ -15,8 +15,4 @@
     owner: root
     group: root
     mode: 0644
-
-- name: Restart systemd-resolved
-  service:
-    name: systemd-resolved
-    state: restarted
+  notify: Restart systemd-resolved

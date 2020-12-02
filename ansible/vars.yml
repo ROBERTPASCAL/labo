@@ -1,5 +1,17 @@
 ---
-# splunk search_head
+# [splunk_settings]
+
+# Specify the password for the admin user in Splunk
+# It is recommended to change that value
 splunk_admin_password: changeme
+# Specify the download URL of Splunk Enterprise
 splunk_url: https://download.splunk.com/products/splunk/releases/8.1.0.1/linux/splunk-8.1.0.1-24fd52428b5a-Linux-x86_64.tgz
+# Specify the name of the Splunk Enterprise executable
 splunk_binary: splunk-8.1.0.1-24fd52428b5a-Linux-x86_64.tgz
+# Specify the Splunk AWS App
+# Will be only installed when cloud_attack_range: 1
+# Specify the S3 bucket url from which you want to download the Splunk Apps
+s3_bucket_url: https://attack-range-appbinaries.s3-us-west-2.amazonaws.com
+# Specify the Splunk AWS App
+# Will be only installed when cloud_attack_range: 1
+splunk_aws_app: splunk-add-on-for-amazon-web-services_500.tgz

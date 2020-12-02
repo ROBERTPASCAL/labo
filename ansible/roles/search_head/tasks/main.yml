@@ -2,14 +2,14 @@
 # This playbook contains common tasks in this role
 
 - include: 00_splunk.yml
-#- include: configure_inputs.yml
-#- include: configure_indexes.yml
-#- include: configure_limits.yml
-#- include: configure_web_conf.yml
-#- include: configure_hec.yml
-#- include: configure_server_conf.yml
-#- include: create_serverclass.yml
-#- include: install_aws_app.yml
+- include: 01_configure_inputs.yml
+- include: 02_configure_indexes.yml
+- include: 03_configure_limits.yml
+- include: 04_configure_web_conf.yml
+- include: 05_configure_hec.yml
+- include: 06_configure_server_conf.yml
+- include: 07_create_serverclass.yml
+- include: 08_install_aws_app.yml
 #  when: cloud_attack_range == "1"
 #- include: install_enterprise_security.yml
 #- include: install_mc.yml
