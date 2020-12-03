@@ -10,28 +10,29 @@
 - include: 06_configure_server_conf.yml
 - include: 07_create_serverclass.yml
 - include: 08_install_aws_app.yml
-#  when: cloud_attack_range == "1"
-#- include: install_enterprise_security.yml
-#- include: install_mc.yml
-#  when: install_mission_control == "1"
-#- include: install_botsv1_dataset.yml
-#  when: splunk_bots_dataset is regex("(1)(?!a)")
-#- include: install_botsv1a_dataset.yml
-#  when: splunk_bots_dataset is regex("1a")
-#- include: install_botsv2_dataset.yml
-#  when: splunk_bots_dataset is regex("(2)(?!a)")
-#- include: install_botsv2a_dataset.yml
-#  when: splunk_bots_dataset is regex("2a")
-#- include: install_botsv3_dataset.yml
-#  when: splunk_bots_dataset is regex("3")
-#- include: install_dsp.yml
-#  when: install_dsp == "1"
-#- include: install_escu_app.yml
-#- include: install_asx_app.yml
-#- include: install_sse_app.yml
-#- include: install_attack_range_dashboard.yml
-#- include: install_windows_ta.yml
-#- include: install_cim_app.yml
-#- include: install_sysmon_ta.yml
-#- include: install_mltk_app.yml
-#- include: install_stream_app.yml
+  when: install_aws_app == "1"
+- include: 09_install_enterprise_security.yml
+  when: install_es_app == "1"
+- include: 10_install_mc.yml
+  when: install_mc_app == "1"
+- include: 11_install_botsv1_dataset.yml
+  when: splunk_bots_dataset is regex("(1)(?!a)")
+- include: 12_install_botsv1a_dataset.yml
+  when: splunk_bots_dataset is regex("1a")
+- include: 13_install_botsv2_dataset.yml
+  when: splunk_bots_dataset is regex("(2)(?!a)")
+- include: 14_install_botsv2a_dataset.yml
+  when: splunk_bots_dataset is regex("2a")
+- include: 15_install_botsv3_dataset.yml
+  when: splunk_bots_dataset is regex("3")
+- include: 16_install_dsp.yml
+  when: install_dsp == "1"
+- include: 17_install_escu_app.yml
+- include: 18_install_asx_app.yml
+- include: 19_install_sse_app.yml
+- include: 20_install_attack_range_dashboard.yml
+- include: 21_install_windows_ta.yml
+- include: 22_install_cim_app.yml
+- include: 23_install_sysmon_ta.yml
+- include: 24_install_mltk_app.yml
+- include: 25_install_stream_app.yml

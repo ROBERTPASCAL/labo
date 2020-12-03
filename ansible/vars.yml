@@ -1,6 +1,9 @@
 ---
 # [splunk_settings]
 
+# specify the splunk server's private ip
+# for mode terraform should be in subnet: 10.0.1.0/24
+splunk_server_private_ip: 192.168.221.128
 # Specify the password for the admin user in Splunk
 # It is recommended to change that value
 splunk_admin_password: changeme
@@ -9,9 +12,91 @@ splunk_url: https://download.splunk.com/products/splunk/releases/8.1.0.1/linux/s
 # Specify the name of the Splunk Enterprise executable
 splunk_binary: splunk-8.1.0.1-24fd52428b5a-Linux-x86_64.tgz
 # Specify the Splunk AWS App
-# Will be only installed when cloud_attack_range: 1
+# Will be only installed when install_aws_app: 1
+install_aws_app: 0
 # Specify the S3 bucket url from which you want to download the Splunk Apps
 s3_bucket_url: https://attack-range-appbinaries.s3-us-west-2.amazonaws.com
 # Specify the Splunk AWS App
 # Will be only installed when cloud_attack_range: 1
-splunk_aws_app: splunk-add-on-for-amazon-web-services_500.tgz
+splunk_aws_app: splunk-add-on-for-amazon-web-services_503.tgz
+# Specify the Splunk Entreprise Security App
+# Splunk Enterprise Security is a Splunk Premium App, that's why it needs to be downloaded and stored into apps folder.
+# Will be only installed when install_es_app: 1
+install_es_app: 0
+# Spefify the name of the Splunk Enterprise Security file, which you saved into the apps folder.
+splunk_es_app: splunk-enterprise-security_620.spl
+# Specify the Mission Control App
+# Will be only installed when install_mc_app: 1
+install_mc_app: "0"
+# Spefify the name of the Mission Control App file, which you saved into the apps folder.
+splunk_mc_app: "splunk-connect-for-mission-control_170ubunt.tgz"
+# A comma separated list of values indicating which of the open-source Boss
+# of the SOC (BOTS) datasets to install.
+# 0  - Do not install any Boss of the SOC datasets (default)
+# 1  - full BOTSv1 dataset index=botsv1
+# 1a - attack-only BOTSv1 dataset index=botsv1 (recommended over full BOTSv1)
+# 2  - full BOTSv2 dataset index=botsv2
+# 2a - attack-only BOTSv2 dataset index=botsv2 (recommended over full BOTSv2)
+# 3  - full BOTSv3 dataset index=botsv3 (there is no 'attack-only for BOTSv3)
+#
+# Examples:
+#
+#   splunk_bots_dataset: "1a"
+#   This setting works nicely with the 'Boss of the SOC (BOTS) Investigation
+#   Workshop for Splunk'
+#   https://splunkbase.splunk.com/app/3985/
+#
+#   splunk_bots_dataset: "1a,2a,3"
+#   This is the recommended setting to get the most BOTS data while incurring
+#   least storage and download times
+#
+# For BOTSv1 and BOTSv2 the 'attack-only' versions of the datasets are
+# preferable. They contain all the malicious activity with none of the
+# bulky background noise. You cannot select both 1 and 1a, nor 2 and 2a.
+# doing so will result in an error during Attack Range Build.
+#
+# Note that specifying any of these datasets will cause the Attack Range build
+# process to download large files and store them in your Attack Range Splunk
+# instance. Slow network links combined with some of the larger BOTS datasets
+# will add significant time to your Attack Range build. A summary of the
+# datasets and their sizes can be found here:
+# https://github.com/splunk/securitydatasets
+#
+# Note the Attack Range build process does not currently install the Splunk
+# apps and add-ons for the BOTS data. You may view the list of apps and
+# add-ons that are associated with each dataset here:
+# https://github.com/splunk/securitydatasets
+#
+# For more information please see: https://github.com/splunk/securitydatasets
+#
+# Questions or comments? Please email the BOTS team: bots@splunk.com
+splunk_bots_dataset: "1"
+#Install Splunk Data Stream Processing
+install_dsp: 0
+dsp_client_cert_path: ""
+# Specify the name of the Splunk ES Content Uudate App  executable
+splunk_escu_app: "DA-ESS-ContentUpdate-latest.tar.gz"
+# Specify the Splunk Splunk Analytic Story Execution (ASX) App
+splunk_asx_app: Splunk_ASX-latest.tar.gz
+# Specify the Timeline Custom Visualization App
+timeline_custom_visualization: timeline-custom-visualization_140.tgz
+# Specify the Splunk Splunk Security Essentials App
+splunk_security_essentials_app: splunk-security-essentials_310.tgz
+# Specify the Status Indicator Custom Visualization App
+status_indicator_custom_visualization: status-indicator-custom-visualization_140.tgz
+# Specify the Punchard Custom Visualization App
+punchard_custom_visualization: punchcard-custom-visualization_140.tgz
+# Specify the Attack Range Dashboard App
+splunk_attack_range_dashboard: splunk_attack_range_reporting-1.0.5.tar.gz
+# Specify the Splunk Windows TA
+splunk_windows_ta: splunk-add-on-for-microsoft-windows_800.tgz
+# Specify the Splunk CIM App
+splunk_cim_app: splunk-common-information-model-cim_4180.tgz
+# Specify the Splunk Sysmon TA
+splunk_sysmon_ta: splunk-add-on-for-microsoft-sysmon_1062.tgz
+# Specify the Splunk python for scientific computing dependency that is needed by the MLTK app
+splunk_python_app: python-for-scientific-computing-for-linux-64-bit_200.tgz
+# Specify the Splunk MLTK App
+splunk_mltk_app: splunk-machine-learning-toolkit_510.tgz
+# Specify the Splunk Stream App
+splunk_stream_app: splunk-stream_720.tgz
