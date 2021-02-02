@@ -13,7 +13,7 @@ splunk_url: https://download.splunk.com/products/splunk/releases/8.1.0.1/linux/s
 splunk_binary: splunk-8.1.0.1-24fd52428b5a-Linux-x86_64.tgz
 # Specify the Splunk AWS App
 # Will be only installed when install_aws_app: 1
-install_aws_app: 0
+install_aws_app: "0"
 # Specify the S3 bucket url from which you want to download the Splunk Apps
 s3_bucket_url: https://attack-range-appbinaries.s3-us-west-2.amazonaws.com
 # Specify the Splunk AWS App
@@ -22,7 +22,7 @@ splunk_aws_app: splunk-add-on-for-amazon-web-services_503.tgz
 # Specify the Splunk Entreprise Security App
 # Splunk Enterprise Security is a Splunk Premium App, that's why it needs to be downloaded and stored into apps folder.
 # Will be only installed when install_es_app: 1
-install_es_app: 0
+install_es_app: "0"
 # Spefify the name of the Splunk Enterprise Security file, which you saved into the apps folder.
 splunk_es_app: splunk-enterprise-security_620.spl
 # Specify the Mission Control App
@@ -70,10 +70,10 @@ splunk_mc_app: "splunk-connect-for-mission-control_170ubunt.tgz"
 # For more information please see: https://github.com/splunk/securitydatasets
 #
 # Questions or comments? Please email the BOTS team: bots@splunk.com
-splunk_bots_dataset: "1"
+splunk_bots_dataset: "0"
 #Install Splunk Data Stream Processing
-install_dsp: 0
-dsp_client_cert_path: ""
+install_dsp: "0"
+dsp_client_cert_path: "0"
 # Specify the name of the Splunk ES Content Uudate App  executable
 splunk_escu_app: "DA-ESS-ContentUpdate-latest.tar.gz"
 # Specify the Splunk Splunk Analytic Story Execution (ASX) App
